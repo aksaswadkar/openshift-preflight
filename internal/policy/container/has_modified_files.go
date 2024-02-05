@@ -208,6 +208,9 @@ func (p *HasModifiedFilesCheck) validate(ctx context.Context, layerIDs []string,
 			previousPackage := packageFiles[layerIDs[idx-1]].LayerPackages[previousPackageVersion]
 			currentPackage := ref.LayerPackages[currentPackageVersion]
 
+			fmt.Printf("Previous Package:\n", previousPackage)
+			fmt.Printf("Current Package:\n", currentPackage)
+
 			if previousPackageVersion == currentPackageVersion {
 				if !strings.Contains(currentPackage.Release, packageDist) && packageDist != "unknown" {
 					// This means it's _probably_ not a RH package. If the file is changed, warn, but don't fail
