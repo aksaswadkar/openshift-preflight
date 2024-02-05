@@ -231,7 +231,7 @@ func (p *HasModifiedFilesCheck) validate(ctx context.Context, layerIDs []string,
 				}
 
 				// Nope, nope, nope. File was modified without using RPM
-				logger.Info("found disallowed modification in layer", "file", modifiedFile)
+				logger.Info("found disallowed modification in layer", "file", modifiedFile, "previousPackage:", previousPackage, "currentPackage:", currentPackage)
 				disallowedModifications = true
 				continue
 			}
