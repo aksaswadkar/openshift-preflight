@@ -249,7 +249,7 @@ func (p *HasModifiedFilesCheck) validate(ctx context.Context, layerIDs []string,
 
 			// Check that the architectures for previous version and current version of a given package match
 			if previousPackage.Arch != currentPackage.Arch {
-				logger.Info("mismatch in package architecture", "file", modifiedFile)
+				logger.Info("mismatch in package architecture", "file", modifiedFile, "previous_arch", previousPackage.Arch, "current_arch", currentPackage.Arch)
 				disallowedModifications = true
 				continue
 			}
